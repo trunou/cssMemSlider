@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: rgb(104, 104, 104);
+  }
+  
+  .wrapper {
+    height: 100%;
+    margin: 2rem auto;
+    max-width: 140vh;
+  }
+  .slider {
+    height: 100%;
+    margin: 0 2rem;
+    overflow: hidden;
+    background-color: #ddd;
+    -webkit-box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+  }
+  
+  .slider > input {
+    display: none;
+  }
+  
+  .slider__main {
+    width: 400%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .slides {
+    height: inherit;
+    width: inherit;
+    transition: 1s;
+  }
+  
+  .slides > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .footer{
+    display: flex;
+    align-items: center;
+  }
+  
+  .titles{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+    padding: 2rem 0;
+  }
+  .title__text{
+    font-size: 1.6rem;
+    width: 100%;
+    flex-shrink: 0;
+    font-size: 1.6rem;
+    transition: 1s;
+    padding-left: 1rem;
+  }
+  
+  .controls{
+    display: flex;
+  }
+  
+  .control__button{
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .control__button:hover > .round{
+    background-color: rgb(87, 125, 194);
+    transition: 0.5s;
+  }
+  
+  .round{
+    background-color: rgb(15, 52, 119);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;  
+  }
+
+input#slide1:checked ~ .footer > .controls > label[for="slide1"] > .round,
+input#slide2:checked ~ .footer > .controls > label[for="slide2"] > .round,
+input#slide3:checked ~ .footer > .controls > label[for="slide3"] > .round,
+input#slide4:checked ~ .footer > .controls > label[for="slide4"] > .round {
+  background-color: white;
+  border: 0.1rem rgb(15, 52, 119) solid;
+}
+
+input#slide1:checked ~ .slider__main > .slides,
+input#slide1:checked ~ .footer > .titles > .title__text{
+  transform: translateX(0);
+}
+input#slide2:checked ~ .slider__main > .slides,
+input#slide2:checked ~.footer > .titles > .title__text{
+  transform: translateX(-100%);
+}
+input#slide3:checked ~ .slider__main > .slides,
+input#slide3:checked ~ .footer > .titles > .title__text{
+  transform: translateX(-200%);
+}
+input#slide4:checked ~ .slider__main > .slides,
+input#slide4:checked ~ .footer > .titles > .title__text{
+  transform: translateX(-300%);
+}
+
+@media (max-width: 768px){
+    .footer{
+        flex-direction: column-reverse;
+        align-items:center;
+        padding-top: 1rem;
+    }
+  }
