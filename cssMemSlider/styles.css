@@ -6,9 +6,7 @@
     -o-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
-  
-  
+
   body {
     background: rgb(104, 104, 104);
   }
@@ -123,3 +121,11 @@ input#slide4:checked ~ .slider__main > .slides,
 input#slide4:checked ~ .footer > .titles > .title__text{
   transform: translateX(-300%);
 }
+
+@media (max-width: 768px){
+    .footer{
+        flex-direction: column-reverse;
+        align-items:center;
+        padding-top: 1rem;
+    }
+  }
